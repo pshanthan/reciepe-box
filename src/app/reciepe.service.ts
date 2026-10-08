@@ -14,8 +14,8 @@ export class ReciepeService {
   addReciepe(r: Reciepe): Observable<Reciepe> {
     return this.httpClient.post<Reciepe>(this.apiUrl, r);
   }
-  updateReciepe(id: number): Observable<Reciepe> {
-    return this.httpClient.post<Reciepe>(`${this.apiUrl}/${id}`, id);
+  updateReciepe(r: Reciepe): Observable<Reciepe> {
+    return this.httpClient.put<Reciepe>(`${this.apiUrl}/${r.id}`, r);
   }
   deleteReciepe(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.apiUrl}/${id}`);
