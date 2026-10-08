@@ -1,5 +1,5 @@
 <div>
-  {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
+  {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian | veg }} -
   {{ r.prepTime | prepTime }} - {{ r.createdDate | date }}
 </div>
 <button (click)="edit.emit(r)">EDIT</button>
