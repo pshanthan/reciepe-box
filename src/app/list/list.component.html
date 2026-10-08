@@ -7,5 +7,9 @@
   <button type="submit">SUBMIT</button>
 </form>
 <div *ngFor="let r of reciepes">
-  <app-reciepe-card></app-reciepe-card>
+  <app-reciepe-card
+    [r]="r"
+    (edit)="startEdit($event)"
+    (delete)="deleteReciepe($event)"
+  ></app-reciepe-card>
 </div>
