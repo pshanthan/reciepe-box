@@ -78,11 +78,18 @@ export class ListComponent implements OnInit {
       createdDate: raw.dateCreated,
     };
     if (this.editingId) {
-      const found = this.reciepes.find((r) => r.id === this.editingId);
-      if (found) {
-        found;
-      }
-      this.recieveService.updateReciepe().subscribe();
+      reciepe.id = this.editingId;
+      this.recieveService.updateReciepe(reciepe).subscribe((updated) => {
+        this.reciepes = this.reciepes.map((r) =>
+          r.id === updated.id ? updated : r,
+        );
+      });
+      this.editingId = null;
+    } else {
+      this.recieveService.addReciepe(reciepe).subscribe((created) => {
+        this.reciepes = [...this.reciepes, created];
+      });
     }
+    this.recieceForm.reset();
   }
 }
