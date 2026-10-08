@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
       nonNullable: true,
       validators: Validators.required,
     }),
-    cusine: new FormControl('', {
+    cuisine: new FormControl('', {
       nonNullable: true,
       validators: Validators.required,
     }),
@@ -67,7 +67,7 @@ export class ListComponent implements OnInit {
   startEdit(r: Reciepe) {
     this.recieceForm.patchValue({
       name: r.name,
-      cusine: r.cuisine,
+      cuisine: r.cuisine,
       vegetarian: String(r.vegetarian),
       dateCreated: r.createdDate,
       prepTime: String(r.prepTime),
