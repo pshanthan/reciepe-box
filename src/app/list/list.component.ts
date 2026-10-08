@@ -8,10 +8,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ReciepeCardComponent } from '../reciepe-card/reciepe-card.component';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ReciepeCardComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })

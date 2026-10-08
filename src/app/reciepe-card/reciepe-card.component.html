@@ -1,1 +1,6 @@
-<p>reciepe-card works!</p>
+<div>
+  {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
+  {{ r.prepTime }} - {{ r.createdDate | date }}
+</div>
+<button (click)="startEdit(r)">EDIT</button>
+<button (click)="deleteReciepe(r.id!)">DELETE</button>

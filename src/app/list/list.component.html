@@ -7,10 +7,5 @@
   <button type="submit">SUBMIT</button>
 </form>
 <div *ngFor="let r of reciepes">
-  <div>
-    {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
-    {{ r.prepTime }} - {{ r.createdDate | date }}
-  </div>
-  <button (click)="startEdit(r)">EDIT</button>
-  <button (click)="deleteReciepe(r.id!)">DELETE</button>
+  <app-reciepe-card></app-reciepe-card>
 </div>
