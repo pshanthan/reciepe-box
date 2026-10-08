@@ -48,9 +48,13 @@ export class ListComponent implements OnInit {
     this.recieveService.getReciepes().subscribe((r) => (this.reciepes = r));
   }
   addReciepes(r: Reciepe) {
-    r.id = Date.now();
     this.recieveService.addReciepe(r).subscribe((created) => {
       this.reciepes = [...this.reciepes, created];
+    });
+  }
+  deleteReciepe(id: number) {
+    this.recieveService.deleteReciepe(id).subscribe(() => {
+      this.reciepes.filter((r) => r.id !== id);
     });
   }
 
