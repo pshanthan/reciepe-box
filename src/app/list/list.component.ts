@@ -54,7 +54,7 @@ export class ListComponent implements OnInit {
   }
   deleteReciepe(id: number) {
     this.recieveService.deleteReciepe(id).subscribe(() => {
-      this.reciepes.filter((r) => r.id !== id);
+      this.reciepes = this.reciepes.filter((r) => r.id !== id);
     });
   }
 
@@ -69,9 +69,18 @@ export class ListComponent implements OnInit {
     });
   }
   onSubmit() {
+    const raw = this.recieceForm.getRawValue();
+    const reciepe: Reciepe = {
+      name: raw.name,
+      cuisine: raw.cuisine,
+      vegetarian: raw.vegetarian,
+      prepTime: Number(raw.prepTime),
+      createdDate: raw.dateCreated,
+    };
     if (this.editingId) {
-      const found = this.reciepes.filter((r) => r.id === this.editingId);
+      const found = this.reciepes.find((r) => r.id === this.editingId);
       if (found) {
+        found;
       }
       this.recieveService.updateReciepe().subscribe();
     }
