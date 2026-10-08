@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Reciepe } from '../models/Reciepe';
 import { CommonModule } from '@angular/common';
+import { PrepTimePipe } from '../pipes/prep-time.pipe';
 @Component({
   selector: 'app-reciepe-card',
   imports: [CommonModule],

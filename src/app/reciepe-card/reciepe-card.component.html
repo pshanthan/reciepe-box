@@ -1,6 +1,6 @@
 <div>
   {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
-  {{ r.prepTime }} - {{ r.createdDate | date }}
+  {{ r.prepTime | prepTime }} - {{ r.createdDate | date }}
 </div>
-<button (click)="(edit)">EDIT</button>
-<button (click)="(delete)">DELETE</button>
+<button (click)="edit.emit(r)">EDIT</button>
+<button (click)="delete.emit(r.id!)">DELETE</button>
