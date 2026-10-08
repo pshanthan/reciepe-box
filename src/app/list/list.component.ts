@@ -59,6 +59,7 @@ export class ListComponent implements OnInit {
   }
 
   startEdit(r: Reciepe) {
+    this.editingId = r.id ?? null;
     this.recieceForm.patchValue({
       name: r.name,
       cuisine: r.cuisine,
@@ -67,5 +68,12 @@ export class ListComponent implements OnInit {
       prepTime: String(r.prepTime),
     });
   }
-  onSubmit() {}
+  onSubmit() {
+    if (this.editingId) {
+      const found = this.reciepes.filter((r) => r.id === this.editingId);
+      if (found) {
+      }
+      this.recieveService.updateReciepe().subscribe();
+    }
+  }
 }
