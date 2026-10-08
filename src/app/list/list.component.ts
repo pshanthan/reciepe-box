@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReciepeService } from '../reciepe.service';
 import { Reciepe } from '../models/Reciepe';
 import { CommonModule } from '@angular/common';
@@ -15,7 +15,7 @@ import {
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   editingId: number | null = null;
   constructor(private recieveService: ReciepeService) {}
   reciepes: Reciepe[] = [];
@@ -41,6 +41,9 @@ export class ListComponent {
       validators: Validators.required,
     }),
   });
+  ngOnInit(): void {
+    this.getReciepes();
+  }
   getReciepes() {
     this.recieveService.getReciepes().subscribe((r) => (this.reciepes = r));
   }
