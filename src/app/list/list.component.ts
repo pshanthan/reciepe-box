@@ -32,7 +32,7 @@ export class ListComponent implements OnInit {
       nonNullable: true,
       validators: Validators.required,
     }),
-    vegetarian: new FormControl('', {
+    vegetarian: new FormControl(false, {
       nonNullable: true,
       validators: Validators.required,
     }),
@@ -48,27 +48,17 @@ export class ListComponent implements OnInit {
     this.recieveService.getReciepes().subscribe((r) => (this.reciepes = r));
   }
   addReciepes(r: Reciepe) {
+    r.id = Date.now();
     this.recieveService.addReciepe(r).subscribe((created) => {
       this.reciepes = [...this.reciepes, created];
     });
   }
-  deleteReciepe(id: number) {
-    this.recieveService.deleteReciepe(id).subscribe(() => {
-      this.reciepes = this.reciepes.filter((r) => r.id !== id);
-    });
-  }
-  updateReciepe(r: Reciepe) {
-    this.recieveService.updateReciepe(r).subscribe((r) => {
-      const found = this.reciepes.filter((reciepe) => r.id === reciepe.id);
-      if (found) {
-      }
-    });
-  }
+
   startEdit(r: Reciepe) {
     this.recieceForm.patchValue({
       name: r.name,
       cuisine: r.cuisine,
-      vegetarian: String(r.vegetarian),
+      vegetarian: Boolean(r.vegetarian),
       dateCreated: r.createdDate,
       prepTime: String(r.prepTime),
     });
