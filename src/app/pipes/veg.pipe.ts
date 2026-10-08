@@ -1,12 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'veg'
+  name: 'veg',
 })
 export class VegPipe implements PipeTransform {
-
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: boolean): string {
+    if ((value = true)) {
+      return 'true';
+    } else {
+      return 'false';
+    }
   }
-
 }
