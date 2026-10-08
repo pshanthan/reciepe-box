@@ -5,10 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class VegPipe implements PipeTransform {
   transform(value: boolean): string {
-    if ((value = true)) {
-      return 'true';
+    if (value === true) {
+      return 'veg';
     } else {
-      return 'false';
+      return 'non-veg';
     }
   }
 }
