@@ -1,0 +1,28 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Masala Dosa",
+      "cuisine": "South Indian",
+      "prepTime": 40,
+      "vegetarian": true,
+      "createdDate": "2026-10-01"
+    },
+    {
+      "id": 2,
+      "name": "Chicken Biryani",
+      "cuisine": "Hyderabadi",
+      "prepTime": 90,
+      "vegetarian": false,
+      "createdDate": "2026-10-05"
+    },
+    {
+      "id": 3,
+      "name": "Palak Paneer",
+      "cuisine": "North Indian",
+      "prepTime": 35,
+      "vegetarian": true,
+      "createdDate": "2026-10-07"
+    }
+  ]
+}
