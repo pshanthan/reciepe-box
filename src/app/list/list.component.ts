@@ -61,5 +61,14 @@ export class ListComponent {
       }
     });
   }
+  startEdit(r: Reciepe) {
+    this.recieceForm.patchValue({
+      name: r.name,
+      cusine: r.cuisine,
+      vegetarian: String(r.vegetarian),
+      dateCreated: r.createdDate,
+      prepTime: String(r.prepTime),
+    });
+  }
   onSubmit() {}
 }
