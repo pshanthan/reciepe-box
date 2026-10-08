@@ -7,6 +7,5 @@ export const routes: Routes = [
     canActivate: [authGuard],
     loadComponent: () =>
       import('./list/list.component').then((m) => m.ListComponent),
-    component: ListComponent,
   },
 ];
