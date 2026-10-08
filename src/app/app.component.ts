@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLinkWithHref],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
