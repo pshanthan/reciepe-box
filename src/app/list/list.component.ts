@@ -4,7 +4,6 @@ import { Reciepe } from '../models/Reciepe';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
-  FormControlName,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -17,6 +16,7 @@ import {
   styleUrl: './list.component.css',
 })
 export class ListComponent {
+  editingId: number | null = null;
   constructor(private recieveService: ReciepeService) {}
   reciepes: Reciepe[] = [];
   recieceForm = new FormGroup({
@@ -50,7 +50,7 @@ export class ListComponent {
     });
   }
   deleteReciepe(id: number) {
-    this.recieveService.deleteReciepe(id).subscribe((r) => {
+    this.recieveService.deleteReciepe(id).subscribe(() => {
       this.reciepes = this.reciepes.filter((r) => r.id !== id);
     });
   }
@@ -61,4 +61,5 @@ export class ListComponent {
       }
     });
   }
+  onSubmit() {}
 }

@@ -1,1 +1,16 @@
-<p>list works!</p>
+<form [formGroup]="recieceForm" (ngSubmit)="onSubmit()">
+  <input formControlName="name" />
+  <input formControlName="cuisine" />
+  <input formControlName="prepTime" />
+  <input type="checkbox" formControlName="vegetarian" />
+  <input formControlName="dateCreated" />
+  <button type="submit">SUBMIT</button>
+</form>
+<div *ngFor="let r of reciepes">
+  <div>
+    {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
+    {{ r.prepTime }} - {{ r.createdDate | date }}
+  </div>
+  <div (click)="updateReciepe(r)">EDIT</div>
+  <div (click)="deleteReciepe(r.id!)">DELETE</div>
+</div>
