@@ -11,6 +11,6 @@
     {{ r.name | uppercase }} - {{ r.cuisine }} - {{ r.vegetarian }} -
     {{ r.prepTime }} - {{ r.createdDate | date }}
   </div>
-  <div (click)="startEdit(r)">EDIT</div>
-  <div (click)="deleteReciepe(r.id!)">DELETE</div>
+  <button (click)="startEdit(r)">EDIT</button>
+  <button (click)="deleteReciepe(r.id!)">DELETE</button>
 </div>
